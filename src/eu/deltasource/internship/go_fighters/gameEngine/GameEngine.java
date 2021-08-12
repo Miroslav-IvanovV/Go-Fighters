@@ -1,19 +1,13 @@
-package gameRules;
+package eu.deltasource.internship.go_fighters.gameEngine;
 
-import heroes.Hero;
-
-import java.util.Random;
+import eu.deltasource.internship.go_fighters.heroes.Hero;
 
 public class GameEngine {
-
-    public GameEngine(Hero playerOne, Hero playerTwo) {
-        fight(playerOne, playerTwo);
-    }
 
     /**
      * It plays the fight between the two fighters.
      */
-    public void fight(Hero firstFighter, Hero secondFighter) {
+    public static void fight(Hero firstFighter, Hero secondFighter) {
         while (true) {
             double damage;
             damage = firstFighter.attack();

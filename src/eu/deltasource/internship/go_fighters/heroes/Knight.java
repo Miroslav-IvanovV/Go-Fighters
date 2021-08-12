@@ -1,6 +1,6 @@
-package heroes;
+package eu.deltasource.internship.go_fighters.heroes;
 
-import gameRules.GameEngine;
+import eu.deltasource.internship.go_fighters.utility.Utilities;
 
 public class Knight extends Hero {
 
@@ -19,22 +19,23 @@ public class Knight extends Hero {
      */
     @Override
     public double attack() {
-        double normalAttack = Hero.randomPercentage(80, 120) * attackPoints;
-        if (Hero.randomPercentage(1, 100) <= specialAttackPercentage) {
+        double normalAttack = super.attack();
+        if (Utilities.randomPercentage(1, 100) <= specialAttackPercentage) {
             return normalAttack * 2;
         }
         return normalAttack;
     }
 
     /**
-     * Calculates how much damage the fighter takes after the class bonuses for defence.
+     * Calculates how much damage the fighter takes after the class bonuses for defence and
+     * calculate how much health the fighter will have after the damage.
      *
      * @param damage takes the value from the other fighter for the attack.
      */
     @Override
     public void defence(double damage) {
-        double normalDefence = Hero.randomPercentage(80, 120) * armourPoints;
-        if (Hero.randomPercentage(1, 100) <= specialDefencePercentage) {
+        double normalDefence = Utilities.randomPercentage(80, 120) * armourPoints;
+        if (Utilities.randomPercentage(1, 100) <= specialDefencePercentage) {
             return;
         } else if (damage - normalDefence > 0) {
             healthPoints = healthPoints - (damage - normalDefence);

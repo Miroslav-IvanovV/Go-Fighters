@@ -1,6 +1,6 @@
-package heroes;
+package eu.deltasource.internship.go_fighters.heroes;
 
-import gameRules.GameEngine;
+import eu.deltasource.internship.go_fighters.utility.Utilities;
 
 public class Warlord extends Hero {
 
@@ -18,8 +18,8 @@ public class Warlord extends Hero {
      */
     @Override
     public double attack() {
-        double normalAttack = Hero.randomPercentage(80, 120) * attackPoints;
-        if (Hero.randomPercentage(1, 100) <= specialAttackPercentage) {
+        double normalAttack = super.attack();
+        if (Utilities.randomPercentage(1, 100) <= specialAttackPercentage) {
             healthPoints = healthPoints - 5;
             return normalAttack * 3.5;
         }

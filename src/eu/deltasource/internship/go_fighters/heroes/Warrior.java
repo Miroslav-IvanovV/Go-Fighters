@@ -1,4 +1,4 @@
-package heroes;
+package eu.deltasource.internship.go_fighters.heroes;
 
 public class Warrior extends Hero {
 

@@ -1,6 +1,6 @@
-package heroes;
+package eu.deltasource.internship.go_fighters.heroes;
 
-import gameRules.GameEngine;
+import eu.deltasource.internship.go_fighters.utility.Utilities;
 
 import java.util.Random;
 
@@ -20,30 +20,19 @@ public abstract class Hero {
      * @return the damage that fighter does
      */
     public double attack() {
-        return Hero.randomPercentage(80, 120) * attackPoints;
+        return Utilities.randomPercentage(80, 120) * attackPoints;
     }
 
     /**
-     * Calculates how much damage the fighter takes after the resistance.
+     * Calculates how much damage the fighter takes after the resistance and
+     * calculate how much health the fighter will have after the damage.
      *
      * @param damage takes the value from the attack.
      */
     public void defence(double damage) {
-        double resist = Hero.randomPercentage(80, 120) * armourPoints;
+        double resist = Utilities.randomPercentage(80, 120) * armourPoints;
         if (resist < damage) {
             healthPoints = healthPoints - (damage - resist);
         }
     }
-
-    /**
-     * @param min takes the lower bound.
-     * @param max takes the upper bound.
-     * @return a random percentage.
-     */
-    public static double randomPercentage(int min, int max) {
-        Random rand = new Random();
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-        return (double) randomNum / 100;
-    }
-
 }
