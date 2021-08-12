@@ -6,7 +6,7 @@ public class Assassin extends Hero {
 
     public Assassin() {
         this.healthPoints = 50;
-        this.attackPoints = 9;
+        this.attackPoints = 10;
         this.armourPoints = 3;
         this.specialAttackPercentage = 0.30;
     }

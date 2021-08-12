@@ -6,9 +6,9 @@ import java.util.Random;
 
 public abstract class Hero {
 
-    protected double healthPoints;
-    protected double attackPoints;
-    protected double armourPoints;
+    protected double healthPoints = 100;
+    protected double attackPoints = 10;
+    protected double armourPoints = 5;
     protected double specialAttackPercentage;
     protected double specialDefencePercentage;
 

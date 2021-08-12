@@ -10,6 +10,6 @@ public class Main {
         Assassin assassin = new Assassin();
         Monk monk = new Monk();
 
-        GameEngine.fight(assassin,monk);
+        GameEngine.fight(assassin, monk);
     }
 }
