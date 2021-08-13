@@ -1,10 +1,11 @@
 package eu.deltasource.internship.go_fighters.heroes;
 
-import eu.deltasource.internship.go_fighters.utility.Utilities;
+import eu.deltasource.internship.go_fighters.RandomGenerator;
 
 public class Monk extends Hero {
 
-    public Monk() {
+    public Monk(RandomGenerator randomNumber) {
+        super(randomNumber);
         this.healthPoints = 70;
         this.attackPoints = 8;
         this.armourPoints = 3;
@@ -18,12 +19,14 @@ public class Monk extends Hero {
      * @param damage takes the value from the other fighter for the attack.
      */
     @Override
-    public void defence(double damage) {
-        double normalDefence = Utilities.randomPercentage(80, 120) * armourPoints;
-        if (Utilities.randomPercentage(1, 100) <= specialDefencePercentage) {
-            return;
+    public double defence(double damage) {
+        double normalDefence = randomNumber.randomPercentage(80, 120) * armourPoints;
+        if (randomNumber.randomPercentage(1, 100) <= specialDefencePercentage) {
+            return 0;
         } else if (damage - normalDefence > 0) {
             healthPoints = healthPoints - (damage - normalDefence);
+            return damage - normalDefence;
         }
+        return 0;
     }
 }

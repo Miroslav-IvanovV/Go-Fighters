@@ -6,24 +6,27 @@ public class GameEngine {
 
     /**
      * It plays the fight between the two fighters.
+     *
+     * @return the winner of the fight.
      */
-    public static void fight(Hero firstFighter, Hero secondFighter) {
+    public static String fight(Hero firstFighter, Hero secondFighter) {
         while (true) {
-            double damage;
+            double damage, damageDone;
             damage = firstFighter.attack();
-            secondFighter.defence(damage);
+            damageDone = secondFighter.defence(damage);
+            System.out.println("player two took " + damageDone + " damage and his current health is "
+                    + secondFighter.getHealthPoints());
             if (secondFighter.getHealthPoints() < 0) {
-                System.out.println("player one won");
-                break;
+                return "Player one won";
             }
 
             damage = secondFighter.attack();
-            firstFighter.defence(damage);
+            damageDone = firstFighter.defence(damage);
+            System.out.println("player one took " + damageDone + " damage and his current health is "
+                    + firstFighter.getHealthPoints());
             if (firstFighter.getHealthPoints() < 0) {
-                System.out.println("player two won");
-                break;
+                return "player two won";
             }
-
         }
     }
 }

@@ -1,10 +1,11 @@
 package eu.deltasource.internship.go_fighters.heroes;
 
-import eu.deltasource.internship.go_fighters.utility.Utilities;
+import eu.deltasource.internship.go_fighters.RandomGenerator;
 
 public class Assassin extends Hero {
 
-    public Assassin() {
+    public Assassin(RandomGenerator randomNumber) {
+        super(randomNumber);
         this.healthPoints = 50;
         this.attackPoints = 10;
         this.armourPoints = 3;
@@ -19,7 +20,7 @@ public class Assassin extends Hero {
     @Override
     public double attack() {
         double normalAttack = super.attack();
-        if (Utilities.randomPercentage(1, 100) <= specialAttackPercentage) {
+        if (randomNumber.randomPercentage(1, 100) <= specialAttackPercentage) {
             return normalAttack * 3;
         }
         return normalAttack;
